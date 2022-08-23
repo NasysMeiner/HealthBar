@@ -12,12 +12,12 @@ public class Player : MonoBehaviour
     private int _minHealthPoints = 0;
     private int _health;
 
-    private UnityEvent _changeHealPoints = new UnityEvent();
+    private UnityEvent ÑhangeHealPoints = new UnityEvent();
 
     public event UnityAction OnÑhangeHealPoints
     {
-        add => _changeHealPoints.AddListener(value);
-        remove => _changeHealPoints.RemoveListener(value);
+        add => ÑhangeHealPoints.AddListener(value);
+        remove => ÑhangeHealPoints.RemoveListener(value);
     }
 
     public int HealthPoints => _healthPoints;
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         if(_healthPoints != _health)
         {
             _healthPoints += value;
-            _changeHealPoints.Invoke();
+            ÑhangeHealPoints.Invoke();
         }
     }
 
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         if (_healthPoints != _health)
         {
             _healthPoints += value;
-            _changeHealPoints.Invoke();
+            ÑhangeHealPoints.Invoke();
         }
     }
 }
