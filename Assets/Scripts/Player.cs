@@ -16,9 +16,14 @@ public class Player : MonoBehaviour
     public int HealthPoints => _healthPoints;
     public int MaxHealthPoints => _maxHealthPoints;
 
-    private void Start()
+    private void OnEnable()
     {
         _changeHealPoints += _healPointsBar.ChangeHealth;
+    }
+
+    private void OnDisable()
+    {
+        _changeHealPoints -= _healPointsBar.ChangeHealth;
     }
 
     public void Healing(int value)
