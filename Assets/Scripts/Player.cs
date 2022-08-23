@@ -5,32 +5,41 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private UnityEvent _changeHealPoints;
+    [SerializeField] private HealPointsBar _healPointsBar;
 
+    private UnityAction _changeHealPoints;
     private int _healthPoints = 70;
     private int _maxHealthPoints = 100;
     private int _minHealthPoints = 0;
+    private int _health;
 
     public int HealthPoints => _healthPoints;
     public int MaxHealthPoints => _maxHealthPoints;
 
-    public void ChangeHealPoints(int value)
+    private void Start()
     {
-        if(value > 0)
+        _changeHealPoints += _healPointsBar.ChangeHealth;
+    }
+
+    public void Healing(int value)
+    {
+        _health = Mathf.Clamp(_healthPoints + value, _minHealthPoints, _maxHealthPoints);
+
+        if(_healthPoints != _health)
         {
-            if (_healthPoints < _maxHealthPoints && _healthPoints != _maxHealthPoints)
-            {
-                _healthPoints += value;
-                _changeHealPoints.Invoke();
-            }           
+            _healthPoints += value;
+            _changeHealPoints.Invoke();
         }
-        else
+    }
+
+    public void Damage(int value)
+    {
+        _health = Mathf.Clamp(_healthPoints + value, _minHealthPoints, _maxHealthPoints);
+
+        if (_healthPoints != _health)
         {
-            if (_healthPoints != _minHealthPoints && _healthPoints > _minHealthPoints)
-            {
-                _healthPoints += value;
-                _changeHealPoints.Invoke();
-            }
+            _healthPoints += value;
+            _changeHealPoints.Invoke();
         }
     }
 }
