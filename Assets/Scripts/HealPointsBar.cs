@@ -22,12 +22,12 @@ public class HealPointsBar : MonoBehaviour
 
     private void OnEnable()
     {
-        _player._changeHealPoints += ChangeHealth;
+        _player.On—hangeHealPoints += ChangeHealth;
     }
 
     private void OnDisable()
     {
-        _player._changeHealPoints -= ChangeHealth;
+        _player.On—hangeHealPoints -= ChangeHealth;
     }
 
     public void ChangeHealth()
