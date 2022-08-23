@@ -459,7 +459,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8b955e69f858344ac8b21894c15ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoints: 100
+  _changeHealPoints:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 65257394}
+        m_TargetAssemblyTypeName: HealPointsBar, Assembly-CSharp
+        m_MethodName: ChangeHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1121721957
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,18 +557,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556202308}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: HealingPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 65257394}
         m_TargetAssemblyTypeName: Hp_Bar, Assembly-CSharp
         m_MethodName: ChangeHealth
@@ -1098,18 +1100,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556202308}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: DamagePlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 65257394}
         m_TargetAssemblyTypeName: Hp_Bar, Assembly-CSharp
         m_MethodName: ChangeHealth
