@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private HealPointsBar _healPointsBar;
 
-    private UnityAction _changeHealPoints;
+    public UnityAction _changeHealPoints;
     private int _healthPoints = 70;
     private int _maxHealthPoints = 100;
     private int _minHealthPoints = 0;
@@ -15,16 +15,6 @@ public class Player : MonoBehaviour
 
     public int HealthPoints => _healthPoints;
     public int MaxHealthPoints => _maxHealthPoints;
-
-    private void OnEnable()
-    {
-        _changeHealPoints += _healPointsBar.ChangeHealth;
-    }
-
-    private void OnDisable()
-    {
-        _changeHealPoints -= _healPointsBar.ChangeHealth;
-    }
 
     public void Healing(int value)
     {

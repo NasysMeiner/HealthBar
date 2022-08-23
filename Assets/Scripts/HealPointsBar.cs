@@ -20,6 +20,16 @@ public class HealPointsBar : MonoBehaviour
         _target = _image.fillAmount;
     }
 
+    private void OnEnable()
+    {
+        _player._changeHealPoints += ChangeHealth;
+    }
+
+    private void OnDisable()
+    {
+        _player._changeHealPoints -= ChangeHealth;
+    }
+
     public void ChangeHealth()
     {
         StopCoroutine(nameof(ChangeHealBar));
